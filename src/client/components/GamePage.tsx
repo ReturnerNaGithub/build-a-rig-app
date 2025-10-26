@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface GamePageProps {
     onGameComplete: (time: number) => void;
@@ -34,7 +34,7 @@ const slotLabels = [
     'Power Cable'
 ];
 
-export const GamePage: React.FC<GamePageProps> = ({ onGameComplete }) => {
+export const GamePage = ({ onGameComplete }: GamePageProps) => {
     const [startTime] = useState(() => Date.now());
     const [currentTime, setCurrentTime] = useState(0);
     const [placedParts, setPlacedParts] = useState<(RigPart | null)[]>(new Array(8).fill(null));

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Player } from '../App';
 
 interface StartPageProps {
@@ -6,7 +6,7 @@ interface StartPageProps {
   onStartGame: () => void;
 }
 
-export const StartPage: React.FC<StartPageProps> = ({ leaderboard, onStartGame }) => {
+export const StartPage = ({ leaderboard, onStartGame }: StartPageProps) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-8">
       <div className="max-w-4xl mx-auto text-center">

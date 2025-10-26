@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { StartPage } from './components/StartPage';
 import { GamePage } from './components/GamePage';
 import { WinPage } from './components/WinPage';
@@ -24,7 +24,7 @@ export const App = () => {
   const handleGameComplete = (time: number) => {
     setPlayerTime(time);
     setGameState('win');
-    
+
     // Add player to leaderboard if they make top 10
     const newPlayer: Player = { name: 'You', time };
     const newLeaderboard = [...leaderboard, newPlayer]
@@ -39,11 +39,11 @@ export const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cover bg-center bg-no-repeat" 
-         style={{ backgroundImage: 'url(/pictures/bg.png)' }}>
+    <div className="min-h-screen bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: 'url(/pictures/bg.png)' }}>
       <div className="min-h-screen bg-gradient-to-br from-blue-900/80 via-purple-900/80 to-green-900/80">
         {gameState === 'start' && (
-          <StartPage 
+          <StartPage
             leaderboard={leaderboard}
             onStartGame={() => setGameState('playing')}
           />
@@ -52,7 +52,7 @@ export const App = () => {
           <GamePage onGameComplete={handleGameComplete} />
         )}
         {gameState === 'win' && (
-          <WinPage 
+          <WinPage
             playerTime={playerTime}
             leaderboard={leaderboard}
             onPlayAgain={resetGame}
